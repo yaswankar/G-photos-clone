@@ -3,6 +3,23 @@
 
 This is a clone of google photos built using [Vue.js](https://vuejs.org/).
 
+## Features
+
+### Completed Features
+
+* Upload Image
+* Add Image Info, delete Image, download, add to favourites [select an image checkbox to view these options]
+* Trashed Images section available
+* Explore section
+    -> Favourites Section
+    -> Recently added Section
+* Tracking ```used space``` on cloud.
+* Image Preview (Available on all the sections) along with image description
+
+### Pending Features
+
+* Search items 
+
 ## Prerequisites
 You will need [Node.js](https://nodejs.org) version 12.0 or greater installed on your system.
 
@@ -34,11 +51,8 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
 ### Configuring the App
 If you're running the project on your local, make sure you check out this link https://github.com/yaswankar/G-photos-backend#readme to get the backend service running.
-Make sure you use port 8080 to run your frontend project
+Make sure you use port ```8080``` (optional) to run your frontend project
 
-     > Happy Coding
+!!!!Happy Coding!!!!
