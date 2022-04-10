@@ -6,12 +6,19 @@
                     <i class="fas fa-trash" @click="deleteImage"></i>
                 </button>
             </div>
-            <div class="gallery">
+            <div class="gallery" v-if="images.length">
                 <div class="gallery-panel"
                     v-for="(photo, index) in images"
                     :key="photo._id">
                     <img :src="photo.location" alt="Unable to load image" @click="openPreview(index)">
                     <input class="selector" type="checkbox" v-model="photo.checked">
+                </div>
+            </div>
+            <div class="empty-container" v-else>
+                <img src="../../assets/sampleImages/bin.png" alt="">
+                <div class="empty-text">
+                    <h3>No Items</h3>
+                    <p>Only items deleted from g-photos will show up here!</p>
                 </div>
             </div>
         <light-box v-if="showPreview" :showCaption="true" :startAt="startIndex" :media="getMedia" @onClosed="showPreview=false"></light-box>
@@ -98,6 +105,7 @@ export default {
 
 <style lang="scss" scoped>
 .main-content {
+    height: 100%;
     .action-buttons {
         display: flex;
         flex-direction: row;
@@ -122,22 +130,34 @@ export default {
         max-width: 100%;
         margin: 25px auto;
         padding: 0 5rem;
-      }
-      .gallery-panel {
-        position: relative;
-        border: 1px solid #eee;
-        border-radius: 5px;
+    }
+    .gallery-panel {
+    position: relative;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    img {
+        width: 100%;
+        height: 22vw;
+        object-fit: contain;
+        border-radius: 0.75rem;
+    }
+    .selector {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+    }
+    }
+    .empty-container {
+        height: 100%;
         img {
-            width: 100%;
-            height: 22vw;
-            object-fit: contain;
-            border-radius: 0.75rem;
+            height: 250px;
+            width: 250px;
+            margin: 20% auto 50px auto;
+            display: block;
         }
-        .selector {
-            position: absolute;
-            left: 10px;
-            top: 10px;
+        .empty-text {
+            text-align: center;
         }
-      }
+    }
 }
 </style>
